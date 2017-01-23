@@ -13,16 +13,19 @@ source:
   sha256: 0b3567c56fb224a418cafbec6115cb5ed1002b256a203f87f1361e9cfce3dd87
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
     - python
+    - setuptools
   run:
     - python
 
 test:
+  source_files:
+    - test_whichcraft.py
   requires:
     - flake8
     - pytest
