@@ -1,19 +1,20 @@
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 {% set gh_org = "pydanny" %}
-{% set gh_repo = "whichcraft" %}
+{% set name = "whichcraft" %}
+{% set sha256 = "9e0d51c9387cb7e9f28b7edb549e6a03da758f7784f991eb4397d7f7808c57fd" %}
 
 
 package:
-  name: {{ gh_repo }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  fn: {{ gh_repo }}-{{ version }}.tar.gz
-  url: https://github.com/{{ gh_org }}/{{ gh_repo }}/archive/{{ version }}.tar.gz
-  sha256: 0b3567c56fb224a418cafbec6115cb5ed1002b256a203f87f1361e9cfce3dd87
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -33,7 +34,7 @@ test:
     - pytest-cov
 
 about:
-  home: https://github.com/{{ gh_org }}/{{ gh_repo }}
+  home: https://github.com/{{ gh_org }}/{{ name }}
   license: BSD-3-Clause
   summary: >
             This package provides cross-platform cross-python shutil.which
