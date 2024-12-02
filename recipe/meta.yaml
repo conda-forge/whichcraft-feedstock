@@ -34,7 +34,7 @@ test:
     - whichcraft
   commands:
     - pip check
-    - coverage run --source=whichcraft --branch pytest -vv --tb=long --color=yes
+    - coverage run --source=whichcraft --branch -m pytest -vv --tb=long --color=yes
     - coverage report --show-missing --skip-covered --fail-under 100
 
 about:
